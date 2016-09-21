@@ -5,29 +5,27 @@ __author__ = "NavCat"
 
 from flask import Flask, request, make_response
 from flask import abort
+from flask import render_template
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def index():
-    # abort(404)
-    # return "<h1>Hello World</h1>"
-    response = make_response("<h1>Hello World</h1>")
-    response.set_cookie("status", 'ok')
-    return response
+    """ 新闻首页 """
+    return render_template('index.html')
 
 
-@app.route("/user/<name>/")
-def user(name):
-    """ 打印用户的名字 """
-    return "<h1>你好, %s</h1>" % name
+@app.route('/cat/<name>/')
+def cat(name):
+    """ 新闻类别页面 """
+    return render_template('cat.html', name=name)
 
 
-@app.route("/info/")
-def info():
-    """ 获取请求信息 """
-    user_agent = request.headers.get('User-Agent')
-    return "<h1>您的浏览器是：%s</h1>" % user_agent
+@app.route('/detail/<int:pk>/')
+def detail(pk):
+    """ 新闻详情页 """
+    return render_template('detail.html')
 
 
 if __name__ == '__main__':
