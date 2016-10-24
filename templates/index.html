@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>百度新闻首页</title>
+{% endblock %}
+{% block content %}
+<!-- 新闻内容部分 -->
+<article>
+    {% for pk, title, tm in news_list %}
+    <div class="list-news">
+        <div class="img-content">
+            <img src="{{ url_for('static', filename='img/new1.jpg', _external=True) }}" alt="图片">
+        </div>
+        <div class="right-content">
+            <h3><a href="{{ url_for('detail', pk=pk) }}" >{{ title }}</a></h3>
+            <small>{{ tm }}</small>
+        </div>
+    </div>
+    {% endfor %}
+</article>
+<!-- /新闻内容部分 -->
+{% endblock %}

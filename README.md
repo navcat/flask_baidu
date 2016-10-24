@@ -8,4 +8,22 @@ pip install flask
 * python baidu.py 运行
 * 浏览器访问http://localhost:5000/
 
-### 本实例仅供学习参考
+### 访问地址
+```
+首页
+http://localhost:5000/
+
+列表页
+http://localhost:5000/cat/推荐/
+http://localhost:5000/cat/百家/
+http://localhost:5000/cat/本地/
+http://localhost:5000/cat/图片/
+
+详情页
+http://localhost:5000/detail/1/
+http://localhost:5000/detail/2/
+http://localhost:5000/detail/3/
+http://localhost:5000/detail/4/
+http://localhost:5000/detail/5/
+
+```

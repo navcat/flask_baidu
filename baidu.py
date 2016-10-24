@@ -13,7 +13,15 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     """ 新闻首页 """
-    return render_template('index.html')
+    # 模拟新闻数据
+    news_list = [
+        (1, "这里是新闻标题1", "1分钟前"),
+        (2, "这里是新闻标题2", "1分钟前"),
+        (3, "这里是新闻标题3", "1分钟前"),
+        (4, "这里是新闻标题4", "1分钟前"),
+        (5, "这里是新闻标题5", "1分钟前"),
+    ]
+    return render_template('index.html', news_list=news_list)
 
 
 @app.route('/cat/<name>/')
@@ -30,3 +38,5 @@ def detail(pk):
 
 if __name__ == '__main__':
     app.run(debug=True)
+    # csrf key
+    app.config['SECRET_KEY'] = 'hard to guess string'
